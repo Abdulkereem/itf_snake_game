@@ -72,7 +72,7 @@ def main_loop():
 
 
         for event in pygame.event.get():
-            # print(event)
+            # Hello faruq
             if event.type == pygame.QUIT:
                 game_over = True
                 pygame.quit()
