@@ -7,8 +7,8 @@ from audio.media import MediaPlayer
 pygame.init()
 md = MediaPlayer('audio/sound/yummy.ogg')
 
-dis_width = 800
-dis_height = 600
+dis_width = 600
+dis_height = 400
 dis = pygame.display.set_mode((dis_width,dis_height))
 pygame.display.update()
 pygame.display.set_caption("Snake xenzia")
@@ -106,7 +106,6 @@ def main_loop():
         if x1 == foodx  and y1 == foody:
             md.load_sound()
             md.play()
-            print("Yummy!!!")
         # print(x1)
         # print(foodx)
         # print(y1)
