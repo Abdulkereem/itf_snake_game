@@ -59,6 +59,7 @@ def main_loop():
             alert('You Lost! Press C to Play again or Q to Quit',RED)
             pygame.display.update()
 
+
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
@@ -103,7 +104,7 @@ def main_loop():
         pygame.display.update()
 
         if x1 == foodx  and y1 == foody:
-            md.load_sound(md.sound)
+            md.load_sound()
             md.play()
             print("Yummy!!!")
         # print(x1)
@@ -117,4 +118,4 @@ def main_loop():
         clock.tick(SNAKE_SPEED)
 
 
-main_loop()
+# main_loop()

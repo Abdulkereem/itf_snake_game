@@ -1,6 +1,7 @@
 import pygame
 import pygame_menu
 from audio.media import MediaPlayer
+import snake
 
 
 pygame.init()
@@ -11,7 +12,7 @@ md  = MediaPlayer('audio/sound/bg.mp3')
 md.load_sound()
 md.play()
 def start_game():
-    print("will start game here")
+    snake.main_loop()
 
 def settings():
     pass
