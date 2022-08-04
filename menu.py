@@ -1,13 +1,15 @@
 import pygame
 import pygame_menu
+from audio.media import MediaPlayer
 
 
 pygame.init()
 
 surface = pygame.display.set_mode((600,400))
 
-
-
+md  = MediaPlayer('audio/sound/bg.mp3')
+md.load_sound()
+md.play()
 def start_game():
     print("will start game here")
 
