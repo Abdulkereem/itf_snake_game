@@ -36,6 +36,7 @@ def our_snake(SNAKE_BLOCK,SNAKE_LIST:list):
 
 
 def alert(msg,color):
+
     msg = font_style.render(msg,True,color)
     dis.blit(msg,[dis_width/2,dis_height/2])
 
@@ -55,6 +56,7 @@ def main_loop():
     while not game_over:
         while game_close == True:
             dis.fill(BLUE)
+          
             alert('You Lost! Press C to Play again or Q to Quit',RED)
             pygame.display.update()
 
@@ -66,7 +68,7 @@ def main_loop():
                         game_close = False
                     if event.key == pygame.K_c:
                         main_loop()
-
+    
 
 
 
@@ -76,7 +78,8 @@ def main_loop():
             if event.type == pygame.QUIT:
                 game_over = True
                 pygame.quit()
-                sys.exit()
+                sys.exit() 
+                            
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -93,6 +96,9 @@ def main_loop():
                     x1_change = 0
 
         if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 <0:
+            md = MediaPlayer('audio/sound/crash.wav')
+            md.load_sound()
+            md.play()
             game_close=True
         x1 += x1_change
         y1 += y1_chnage
