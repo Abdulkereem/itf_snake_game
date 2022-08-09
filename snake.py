@@ -98,12 +98,34 @@ def main_loop():
         x1 += x1_change
         y1 += y1_chnage
         dis.fill(WHITE)
+
+        
+        #food
         pygame.draw.rect(dis,BLUE,[foodx,foody,SNAKE_BLOCK,SNAKE_BLOCK])
-        pygame.draw.rect(dis,BLACK,[x1,y1,SNAKE_BLOCK,SNAKE_BLOCK])
+        snake_Head =[]
+        snake_Head.append(x1)
+        snake_Head.append(y1)
+        SNAKE_LIST.append(snake_Head)
+        if len(SNAKE_LIST) > Lenght_of_snake:
+            del SNAKE_LIST[0]
+
+        for x in SNAKE_LIST[:-1]:
+            if x == snake_Head:
+                game_close =True
+
+        our_snake(SNAKE_BLOCK,SNAKE_LIST)
+
+
+        # pygame.draw.rect(dis,BLACK,[x1,y1,SNAKE_BLOCK,SNAKE_BLOCK])
 
         pygame.display.update()
 
+
+        #food matching
         if x1 == foodx  and y1 == foody:
+            foodx = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)
+            foody = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)
+            Lenght_of_snake+=1
             md.load_sound()
             md.play()
         # print(x1)
