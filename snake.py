@@ -8,7 +8,7 @@ pygame.init()
 
 dis_width = 600
 dis_height = 400
-dis = pygame.display.set_mode((dis_width,dis_height))
+dis = pygame.display.set_mode((dis_width,dis_height),pygame.FULLSCREEN)
 pygame.display.update()
 pygame.display.set_caption("Snake xenzia")
 game_over=False
@@ -53,6 +53,17 @@ def main_loop():
     Lenght_of_snake = 1
     foodx = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)* 10.0
     foody = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)*10.0
+    if foody > dis_width and dis_height:
+        foody = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)* 10.0
+    
+    if foodx > dis_width and dis_height:
+        foodx = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)* 10.0
+    
+    
+
+
+    print(foodx)
+    print(foody)
     while not game_over:
         while game_close == True:
             dis.fill(BLUE)
@@ -130,6 +141,11 @@ def main_loop():
         if x1 == foodx  and y1 == foody:
             foodx = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)* 10.0
             foody = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)*10.0
+            if foody > dis_width and dis_height:
+                foody = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)* 10.0
+    
+            if foodx > dis_width and dis_height:
+                foodx = round(random.randrange(0,dis_width - SNAKE_BLOCK)/10.0)* 10.0
             Lenght_of_snake+=1
             md = MediaPlayer('audio/sound/yummy.ogg')
             md.load_sound()

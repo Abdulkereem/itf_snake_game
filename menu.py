@@ -6,7 +6,8 @@ import snake
 
 pygame.init()
 
-surface = pygame.display.set_mode((600,400))
+surface = pygame.display.set_mode(pygame.display.get_window_size(),pygame.FULLSCREEN)
+
 
 md  = MediaPlayer('audio/sound/bg.mp3')
 md.load_sound()
