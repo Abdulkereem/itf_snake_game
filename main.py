@@ -1,3 +1,4 @@
+from curses import echo
 from sqlalchemy import Column
 from sqlalchemy import String
 from sqlalchemy import Integer
@@ -9,8 +10,12 @@ engine = create_engine('sqlite:///test.db')
 db  = declarative_base()
 
 class User(db):
-    __tabelname__ = "user_account"
+    __tablename__ = "user_account"
 
     id =  Column(Integer,primary_key=True)
     fullname = Column(String(255))
     gender  = Column(String(30))
+
+
+
+db.metadata.create_all(engine)
