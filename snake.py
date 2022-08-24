@@ -3,28 +3,14 @@ import pygame
 import time
 import sys
 from audio.media import MediaPlayer
+from utilities.state import *
 
 pygame.init()
 
-dis_width = 600
-dis_height = 400
+
 dis = pygame.display.set_mode((dis_width,dis_height),pygame.FULLSCREEN)
 pygame.display.update()
 pygame.display.set_caption("Snake xenzia")
-game_over=False
-BLUE = (0,0,255)
-RED  = (255, 0, 0)
-WHITE = (255, 255, 255)
-BLACK = (0,0,0)
-SNAKE_SPEED = 10
-SNAKE_BLOCK = 10
-x1=dis_width/2
-y1=dis_height/2
-
-x1_change = 0
-y1_chnage = 0
-
-
 font_style = pygame.font.SysFont(None,25)
 score_style = pygame.font.SysFont('comicsansms',35)
 
