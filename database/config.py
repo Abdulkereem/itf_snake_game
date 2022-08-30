@@ -4,8 +4,8 @@ import sqlite3
 
 sqlite3.connect('test.db')
 
-engine = create_engine('sqlite:///test.db')
+engine = create_engine('sqlite:///./test.db')
 db = declarative_base()
-session = sessionmaker(bind=engine)
-
+Session = sessionmaker(bind=engine)
+session = Session()
 

@@ -1,7 +1,10 @@
 import pygame
 import pygame_menu
 from audio.media import MediaPlayer
+from database.models.middleware import QueryDB
 import snake
+
+dbmanager = QueryDB()
 
 
 pygame.init()
@@ -15,6 +18,12 @@ md.play()
 def start_game():
     snake.main_loop()
 
+
+def userinput(value):
+    user = dbmanager.get_user(value)
+    print(user.fullname)
+
+
 def settings():
     pass
 
@@ -22,11 +31,10 @@ def settings():
 menu = pygame_menu.Menu("Snake Xenzia ITF",400,300,
                                                 theme=pygame_menu.themes.THEME_BLUE)
 
-menu.add.text_input('Set Player Name',default='Omega Man')
+menu.add.text_input('username: ',default='',onreturn=userinput)
 menu.add.button("Play",start_game)
 menu.add.button("Settings",settings)
 menu.add.button('Exit',pygame_menu.events.EXIT)
-
 
 
 

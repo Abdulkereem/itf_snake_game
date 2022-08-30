@@ -1,13 +1,12 @@
 from sqlalchemy import *
 
-from config import db, engine
+from database.config import db, engine
 
 
 
 
 class User(db):
     __tablename__ ="Users"
-
     id              = Column(Integer,primary_key=True)
     fullname        = Column(String(255))
     username        = Column(String(255),unique=True)
