@@ -1,4 +1,4 @@
-from models.game import migrate
+# from models.game import migrate
 
-
-migrate()
+# from database.models
+# migrate()

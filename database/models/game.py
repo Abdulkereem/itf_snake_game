@@ -13,6 +13,13 @@ class User(db):
     email           = Column(String(255),unique=True)
 
 
+
+
+class SessionHandler(db):
+    __tablename__ = 'SessionHandler'
+    id              = Column(Integer,primary_key=True)
+    username        = Column(String(255))
+
 # class GameSettings(db):
 #     pass
 
@@ -21,5 +28,8 @@ class User(db):
 
 def migrate():
     db.metadata.create_all(bind=engine)
+
+
+# migrate()
 
 
